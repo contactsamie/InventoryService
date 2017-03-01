@@ -16,6 +16,8 @@ namespace InventoryService.AkkaInMemoryServer
 
         public string InventoryActorAddress { set; get; }
 
+       [Obsolete("ServerEndPoint is no longer used!!! Inventory UI is no longer available during a test session. Test server UI is removed at this time")]
+
         public string ServerEndPoint { set; get; }
 
         public ActorSystem ServerActorSystem { get; set; }

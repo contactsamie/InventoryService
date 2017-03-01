@@ -26,7 +26,7 @@ namespace InventoryService.Actors
         public Guid? LastEtag { set; get; }
         public InventoryQueryActor(IBackUpService backUpService)
         {
-            if (backUpService == null) throw new ArgumentNullException(nameof(backUpService));
+            
             BackUpService = backUpService;
             var lastUpadteTime = DateTime.UtcNow;
             Subscribers = new List<Tuple<string, IActorRef>>();
@@ -44,7 +44,7 @@ namespace InventoryService.Actors
                 {
                     var inventories = RealTimeInventories.Select(x => x.Value as RealTimeInventory).ToList();
                     var csv = inventories.ToDelimitedText(",", true);
-                    backUpService.BackUp(("inventory-service-backup-" + $"{DateTime.UtcNow:dddd MMMM d yyyy HH-mm-ss}" + ".csv").ToLower(), csv);
+                    backUpService?.BackUp(("inventory-service-backup-" + $"{DateTime.UtcNow:dddd MMMM d yyyy HH-mm-ss}" + ".csv").ToLower(), csv);
                     Sender.Tell(new BackUpAllInventoryCompletedMessage());
                 }
                 catch (Exception e)

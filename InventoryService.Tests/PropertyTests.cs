@@ -28,7 +28,7 @@ namespace InventoryService.Tests
            #endif
            */
             // return new InventoryServiceServer(new InventoryServerOptions() { InitialInventory = inventory });
-            return new InventoryServiceServer(new TestPerformanceService(), new NullBackUp(), new InventoryServerOptions() { InitialInventory = inventory, DontUseActorSystem = true });
+            return new InventoryServiceServer(new TestPerformanceService(), new NullBackUp(), new InventoryServerOptions() { InitialInventory = inventory, DontUseActorSystem = false });
         }
 
         [Property(Arbitrary = new[] { typeof(InventoryArbitrary) }, MaxTest = 1000)]

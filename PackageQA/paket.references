@@ -1,0 +1,8 @@
+Akka
+Akka.Cluster
+Akka.Remote
+Google.ProtocolBuffers
+Helios
+Microsoft.Owin.Host.HttpListener
+Newtonsoft.Json
+System.Collections.Immutable

@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{0B8ECD64-7A95-4631-B732-B585E69C2E7A}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService.Tests", "InventoryService.Tests\InventoryService.Tests.csproj", "{66283BAF-950E-4A48-92A5-F3446FDA456F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService.Console", "InventoryService.Console\InventoryService.Console.csproj", "{FE583E78-6C0E-467B-A836-C4F88F5046CE}"
@@ -27,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		build.bat = build.bat
 		InventoryService.Messages.nuspec = InventoryService.Messages.nuspec
 		InventoryService.Server.nuspec = InventoryService.Server.nuspec
+		testnuget.txt = testnuget.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService.ServiceDeployment", "InventoryService.ServiceDeployment\InventoryService.ServiceDeployment.csproj", "{77FBB708-8E17-4792-90F1-E79308287E09}"
@@ -76,6 +82,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService.NullBackUpService", "InventoryService.NullBackUpService\InventoryService.NullBackUpService.csproj", "{00FC2BBF-6E54-4836-84F4-359F52076CFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService.AzureBlobBackUpService", "InventoryService.AzureBlobBackUpService\InventoryService.AzureBlobBackUpService.csproj", "{4706B0E5-11A8-4EE0-8715-AF7D7BB48A7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NugetManualTest", "NugetManualTest", "{4210A724-E6ED-4F85-8FE5-86D2E81C467B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -212,5 +220,6 @@ Global
 		{78B1CF4C-224D-4BF1-849A-DB45620195B0} = {D677F401-086D-46AF-8B98-7AC641653EBA}
 		{00FC2BBF-6E54-4836-84F4-359F52076CFD} = {D677F401-086D-46AF-8B98-7AC641653EBA}
 		{4706B0E5-11A8-4EE0-8715-AF7D7BB48A7D} = {D677F401-086D-46AF-8B98-7AC641653EBA}
+		{4210A724-E6ED-4F85-8FE5-86D2E81C467B} = {C6F3622F-748C-4329-BCBC-834483907D85}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,59 @@
+namespace InventoryService.ExternalClientNuget
+{
+	class Program
+	{
+		private static void Main(string[] args)
+		{
+			IActorRef internalInventoryActorRef = null;
+			var inventoryActorAddress = "akka.tcp://InventoryService-Server@localhost:10000/user/InventoryActor";
+			var serverOptions = new InventoryServerOptions()
+			{
+				InventoryActorAddress = inventoryActorAddress,
+				ServerEndPoint = "http://*:" + InventoryServerOptions.GetFreeTcpPort() + "/",
+				StorageType = typeof(Storage.InMemoryLib.InMemory),
+				OnInventoryActorSystemReady = (ia, s) =>
+				{
+					internalInventoryActorRef = ia;
+				},
+				ServerActorSystemName = "InventoryService-Server",
+				ServerActorSystemConfig = @"
+				   akka {
+				   loggers = [""Akka.Logger.NLog.NLogLogger,Akka.Logger.NLog""]
+				   stdout-loglevel = DEBUG
+				   loglevel = DEBUG
+				   log-config-on-start = on
+					}
+				   akka.actor{
+					  provider= ""Akka.Remote.RemoteActorRefProvider, Akka.Remote""
+					  debug {
+							receive = on
+							autoreceive = on
+							lifecycle = on
+							event-stream = on
+							unhandled = on
+					}
+				   }
+				  akka.remote {
+					  log-remote-lifecycle-events = DEBUG
+					  log-received-messages = on
+					  log-sent-messages = on
+					helios.tcp {
+					  log-remote-lifecycle-events = DEBUG
+					  log-received-messages = on
+					  log-sent-messages = on
+					  transport-class =""Akka.Remote.Transport.Helios.HeliosTcpTransport, Akka.Remote""
+					  port = 10000
+					  transport-protocol = tcp
+					  hostname = ""localhost""
+					 }
+				   }
+			  "
+			};
+			var inventoryserviceServer = new InventoryServiceServer(null, null, serverOptions);
+			if (internalInventoryActorRef.IsNobody())
+			{
+				throw new Exception();
+			}
+		}
+	}
+}

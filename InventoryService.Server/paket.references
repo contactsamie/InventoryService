@@ -1,0 +1,13 @@
+Akka
+Akka.Cluster
+Akka.Logger.NLog
+Akka.Remote
+Google.ProtocolBuffers
+Helios
+Microsoft.AspNet.WebApi.Client
+Microsoft.Owin
+Microsoft.Owin.Hosting
+Newtonsoft.Json
+NLog
+Owin
+System.Collections.Immutable

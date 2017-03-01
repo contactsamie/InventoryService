@@ -24,10 +24,10 @@ namespace InventoryService.Actors
         private IBackUpService BackUpService { set; get; }
         public InventoryActor(IInventoryStorage inventoryStorage, IPerformanceService performanceService,IBackUpService backUpService, bool withCache = true)
         {
-            if (backUpService == null) throw new ArgumentNullException(nameof(backUpService));
+           
             BackUpService = backUpService;
             PerformanceService = performanceService;
-            PerformanceService.Init();
+            PerformanceService?.Init();
             Logger.Debug("Starting Inventory Actor ....");
             InventoryStorage = inventoryStorage;
             _withCache = withCache;

@@ -4,13 +4,15 @@ using InventoryService.Messages;
 using InventoryService.Messages.Models;
 using InventoryService.Messages.Request;
 using InventoryService.Server;
-using InventoryService.ServiceClientDeployment;
+
 using InventoryService.Storage;
 using Microsoft.Owin.Hosting;
 using System;
 using System.Configuration;
 using System.Threading.Tasks;
 using InventoryService.BackUpService;
+
+
 
 namespace InventoryService.AkkaInMemoryServer
 {
@@ -55,11 +57,12 @@ namespace InventoryService.AkkaInMemoryServer
 
                 inventoryActor = TryResolveActorSelection(selection);
 
-                var serverEndPoint = Options.ServerEndPoint;//ConfigurationManager.AppSettings["ServerEndPoint"];
-                if (!string.IsNullOrEmpty(serverEndPoint))
-                {
-                    OwinRef = WebApp.Start<Startup>(url: serverEndPoint);
-                }
+                //TODO Inventory UI is no longer available during a test session
+                //var serverEndPoint = Options.ServerEndPoint;//ConfigurationManager.AppSettings["ServerEndPoint"];
+                //if (!string.IsNullOrEmpty(serverEndPoint))
+                //{
+                //    OwinRef = WebApp.Start<Startup>(url: serverEndPoint);
+                //}
 
                 if (Options.InitialInventory != null)
                 {

@@ -26,6 +26,8 @@
     <file src="InventoryService.ActorSystemFactoryLib.dll" target="lib\net40" />
     <file src="InventoryService.Actors.dll" target="lib\net40" />
     <file src="InventoryService.dll" target="lib\net40" />
+    <file src="InventoryService.BackUpService.dll" target="lib\net40" />
+    <file src="InventoryService.Diagnostics.dll" target="lib\net40" />
     <file src="readme.txt" target="" />
   </files>
 
